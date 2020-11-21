@@ -1,0 +1,33 @@
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: whitesmoke;
+  color: black;
+  font-weight: 600;
+  padding: 0 24px;
+  box-shadow: 2px 2px 2px #aaaaaa;
+}
+
+.header img {
+  margin: 0 16px;
+}
+
+/* .header #twitter-logo {
+  height: 40px;
+  margin: 0 16px;
+} */
+
+/* .header #twitter-logo:hover {
+  opacity: 0.8;
+} */
+.spacer {
+  flex: 1;
+}
+.instagram-logo{
+  width: 90px;
+}
+.icon:hover{
+cursor: pointer;
+}
+
