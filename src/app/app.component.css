@@ -2,3 +2,10 @@
   height: 100vh;
   width: 100%;
 }
+.main-content{
+  padding: 0 20%;
+   width: 100%;
+  height: calc(100vh - 54px);
+  /* background-color: rosybrown; */
+  background-color: rgba(var(--b3f,250,250,250),1);
+}
