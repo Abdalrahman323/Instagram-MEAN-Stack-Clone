@@ -1,0 +1,37 @@
+.post-container{
+  /* margin: 20px auto; */
+  max-width: 500px;
+  background-color: rgba(var(--d87,255,255,255),1);
+  margin-bottom: 60px;
+  border-radius: 3px;
+    border: 1px solid #dbdbdb;
+    border: 1px solid rgba(var(--b6a,219,219,219),1);
+}
+.header {
+  display :flex;
+  height: 27px;
+  background-color: gold;
+  padding:16px;
+  border-bottom: 1px solid rgba(var(--ce3,239,239,239),1);
+  background-color: #fff;
+}
+.user-thumbnail{
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-size: cover;
+  background-image: url(http://www.publicdomainpictures.net/pictures/170000/velka/spinach-leaves-1461774375kTU.jpg);
+}
+.user-name{
+  margin-inline-start: 14px;
+  font-size: 14px;
+}
+.Image-container{
+  height: 400px;
+}
+.image{
+  height: 400px;
+  object-fit: cover;
+  width: 100%;
+
+}

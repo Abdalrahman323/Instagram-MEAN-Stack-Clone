@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { PostsComponent } from './posts/posts.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { PostComponent } from './post/post.component';
 
 
 
@@ -16,6 +17,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     HeaderComponent,
     PostsComponent,
     CreatePostComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,
