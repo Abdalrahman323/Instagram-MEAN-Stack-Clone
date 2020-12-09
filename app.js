@@ -5,6 +5,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app =express();
 const postsRoutes = require('./routes/posts');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 const PORT = 3000;
 
 
@@ -20,8 +22,10 @@ mongoose.connect(URL,{
   console.log('Connection failed !!')
 })
 
+app.use(cors());
+app.use(bodyParser.json({limit: '50mb'}));
 
-// middlewares for all incoming requests
+
 app.use("/api/posts",postsRoutes);
 
 app.listen(PORT,()=>{

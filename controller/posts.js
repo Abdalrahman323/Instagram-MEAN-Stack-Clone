@@ -4,11 +4,11 @@ const Post = require('../models/post')
 
 exports.createPost =(req,res,next)=>{
 
-   // const photoEncoded = req.body.encodedImage;
-
+    const photoEncoded = req.body.photo;
+    
     const post = new Post({
         title:"Hardcoded Image title",
-      //  photo: new Buffer.from(photoEncoded,"base64")
+        photo: photoEncoded
     });
     
 
@@ -22,4 +22,30 @@ exports.createPost =(req,res,next)=>{
            })
         });
 
+}
+
+exports.getPosts=(req,res,next)=>{
+   let fetchedPosts = [];
+
+   const postQuery = Post.find()
+                         .sort('-createdAt');
+   
+   postQuery.then(postsData =>{
+
+       postsData.map((item)=>{
+        fetchedPosts.push({
+               _id:item.id,
+               title:item.title,
+               photo:item.photo
+           })
+       })
+    return Post.countDocuments();
+   }).then(postsCount =>{
+    
+        res.status(200).json({
+            message: "posts fetched successfully",
+            fetchedPosts : fetchedPosts,
+            maxPosts : postsCount
+        })
+   })
 }
