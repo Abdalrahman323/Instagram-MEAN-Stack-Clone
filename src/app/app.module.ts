@@ -4,11 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { PostsComponent } from './posts/posts.component';
-import { CreatePostComponent } from './create-post/create-post.component';
+import { CreatePostComponent } from './posts/components/create-post/create-post.component';
 import { AngularSvgIconModule } from 'angular-svg-icon';
-import { PostComponent } from './post/post.component';
+import { PostComponent } from './posts/components/post/post.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PostListComponent } from './posts/components/post-list/post-list.component';
 
 
 
@@ -16,15 +17,16 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    PostsComponent,
     CreatePostComponent,
     PostComponent,
     UserProfileComponent,
+    PostListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularSvgIconModule.forRoot()
+    AngularSvgIconModule.forRoot(),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

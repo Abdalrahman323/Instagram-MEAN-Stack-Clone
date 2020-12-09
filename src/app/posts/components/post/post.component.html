@@ -1,12 +1,13 @@
 <div class="post-container">
    <div class="header">
       <div class="user-thumbnail"></div>
-      <div class="user-name"> sousuo.sam</div>
+      <div class="user-name"> {{post.title}}</div>
    </div>
    <div class="Image-container">
-    <img class="image" sizes="614px" src="../../assets/Images/forest.jpg" alt="">
+    <img class="image" [src]="post.photo" alt="">
    </div>
    <div class="footer">
 
    </div>
 </div>
+
