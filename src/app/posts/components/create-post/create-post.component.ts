@@ -11,6 +11,8 @@ export class CreatePostComponent implements OnInit {
 
   encodedImg;
   post = {} as Post;
+  isLoading = false;
+
 
 
   constructor( private  postsService :PostsService) { }
@@ -31,7 +33,7 @@ export class CreatePostComponent implements OnInit {
 
   }
   onSavePost(){
-
+    this.isLoading =true;
     this.post.photo = this.encodedImg;
     this.postsService.createPost(this.post);
 

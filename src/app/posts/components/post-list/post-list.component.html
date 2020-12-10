@@ -1,5 +1,9 @@
 <div class="posts-component">
-  <ng-container *ngFor="let post of posts">
-    <post [post]="post" ></post>
-  </ng-container>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+  <div *ngIf="!isLoading">
+    <ng-container  *ngFor="let post of posts" >
+      <post [post]="post" ></post>
+    </ng-container>
+  </div>
 </div>
