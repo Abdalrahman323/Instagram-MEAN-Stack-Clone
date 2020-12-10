@@ -10,6 +10,7 @@ import { PostComponent } from './posts/components/post/post.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostListComponent } from './posts/components/post-list/post-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -27,6 +28,7 @@ import { PostListComponent } from './posts/components/post-list/post-list.compon
     AppRoutingModule,
     AngularSvgIconModule.forRoot(),
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

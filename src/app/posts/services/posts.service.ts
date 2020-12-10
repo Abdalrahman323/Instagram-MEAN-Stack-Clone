@@ -3,6 +3,7 @@ import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 const backend_url = environment.apiUrl+'/posts';
 
@@ -14,7 +15,7 @@ export class PostsService {
   private posts: Post[] = [];
   private postsUpdated  = new Subject<{posts:Post[],postCount:number}>();
 
-  constructor( private httpClient :HttpClient) { }
+  constructor( private httpClient :HttpClient , private router:Router) { }
 
   getPostsUpdatedlistenter(){
     return this.postsUpdated.asObservable();
@@ -23,6 +24,7 @@ export class PostsService {
   createPost(Post :Post){
     this.httpClient.post(backend_url,Post).subscribe(resData =>{
       // console.log("image created successfully");
+      this.router.navigate(['/']);
     });
   }
 
