@@ -22,6 +22,8 @@
     "@angular/platform-browser-dynamic": "~10.0.14",
     "@angular/router": "~10.0.14",
     "angular-svg-icon": "^10.0.0",
+    "blueimp-canvas-to-blob": "^3.28.0",
+    "ng2-img-max": "^2.2.4",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
@@ -44,6 +46,7 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~3.9.5"
+    "typescript": "~3.9.5",
+    "webpack-bundle-analyzer": "^4.2.0"
   }
 }

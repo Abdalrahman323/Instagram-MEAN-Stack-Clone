@@ -1,6 +1,8 @@
 import { Post } from './../../post.model';
 import { PostsService } from '../../services/posts.service';
 import { Component, OnInit } from '@angular/core';
+import { Ng2ImgMaxService } from 'ng2-img-max';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-create-post',
@@ -9,32 +11,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatePostComponent implements OnInit {
 
-  encodedImg;
+  uploadedImage: File;
+  imagePreview: string;
+
   post = {} as Post;
   isLoading = false;
 
 
 
-  constructor( private  postsService :PostsService) { }
+  constructor( private  postsService :PostsService ,
+     private ng2ImgMax :Ng2ImgMaxService,
+     public sanitizer: DomSanitizer ) { }
 
   ngOnInit(): void {
   }
-  onImagePicked(event:Event){
+  onImageChange(event :Event) {
+    const image = (event.target as HTMLInputElement).files[0];
+    const imageType =image.type;
+    console.log(imageType);
 
-     const file = (event.target as HTMLInputElement).files[0];
-    const reader = new FileReader();
-    // this fn will executed when done reading the file
-    // it's async code , so we used callback fn asigned to onload
-    reader.onload=()=>{
-      this.encodedImg = reader.result
-    }
-    reader.readAsDataURL(file);
-    //the result attribute contains the data as a data: URL representing the file's data as a base64 encoded string.
+     const reader = new FileReader();
+
+  
+    this.ng2ImgMax.compressImage(image, 0.08).subscribe(  //  0.08 mb
+      result => {
+        this.uploadedImage = new File([result], result.name,);
+        //this.getImagePreview(this.uploadedImage);
+        reader.onload=()=>{
+          this.imagePreview = (reader.result)as string;
+          this.imagePreview = "data:"+imageType+";"+this.imagePreview.substr(this.imagePreview.indexOf('base64'));
+         // console.log(this.imagePreview);
+        }
+        reader.readAsDataURL(this.uploadedImage);
+      },
+      error => {
+        console.log('😢 Oh no!', error);
+      }
+    );
 
   }
+
   onSavePost(){
     this.isLoading =true;
-    this.post.photo = this.encodedImg;
+    this.post.photo = (this.imagePreview);
     this.postsService.createPost(this.post);
 
 
