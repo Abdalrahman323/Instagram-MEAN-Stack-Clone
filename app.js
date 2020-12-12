@@ -20,14 +20,13 @@ mongoose.connect(URL,{
   useUnifiedTopology:true,
   useFindAndModify:false
 }).then(()=>{
-  console.log(`connected Successfully to ${process.env.MONGO_DB_Name}`);
+  console.log(`connected Successfully to Database Url`);
 }).catch(()=>{
   console.log('Connection failed !!')
 })
 
 app.use(cors());
 app.use(bodyParser.json({limit: '50mb'}));
-
 
 app.use("/api/posts",postsRoutes);
 

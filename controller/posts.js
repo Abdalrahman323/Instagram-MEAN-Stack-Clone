@@ -25,11 +25,19 @@ exports.createPost =(req,res,next)=>{
 }
 
 exports.getPosts=(req,res,next)=>{
-   let fetchedPosts = [];
+    const pageSize= +req.query.pagesize;
+    const currentPage= +req.query.page;
 
+   let fetchedPosts = [];
    const postQuery = Post.find()
                          .sort('-createdAt');
    
+   if(pageSize&&currentPage){
+       postQuery
+       .skip(pageSize*(currentPage-1))  // page is one index
+       .limit(pageSize)
+   }
+
    postQuery.then(postsData =>{
 
        postsData.map((item)=>{
