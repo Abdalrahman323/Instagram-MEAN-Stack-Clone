@@ -1,19 +1,20 @@
 .app-root-container {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 .header-container{
   height: 54px;
 }
 .main-content{
-  height: calc(100% - 84px);
+  height: calc(100% - 54px);
+  
   margin: 0 auto;
-  padding: 0 20px;
+  /* padding: 0 20px;
   padding-top: 30px;
-  max-width: 935px;
+  max-width: 935px; */
   /* display: flex;
-  justify-content: center; */
-  background-color: rgba(var(--b3f,250,250,250),1);
+  justify-content: center; */    background-color: rgba(var(--b3f,250,250,250),1);
 
 }
                            /* Responsive Design  */

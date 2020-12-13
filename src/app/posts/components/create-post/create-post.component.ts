@@ -28,12 +28,12 @@ export class CreatePostComponent implements OnInit {
   onImageChange(event :Event) {
     const image = (event.target as HTMLInputElement).files[0];
     const imageType =image.type;
-    console.log(imageType);
+    //console.log(imageType);
 
      const reader = new FileReader();
 
   
-    this.ng2ImgMax.compressImage(image, 0.08).subscribe(  //  0.08 mb
+    this.ng2ImgMax.compressImage(image, 0.06).subscribe(  //  .06 mb  60kb
       result => {
         this.uploadedImage = new File([result], result.name,);
         //this.getImagePreview(this.uploadedImage);

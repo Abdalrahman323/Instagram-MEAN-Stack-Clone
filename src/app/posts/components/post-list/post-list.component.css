@@ -1,3 +1,20 @@
+.posts-component{
+  height: 100%;
+
+}
+.loading-spinner-item{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
 mat-spinner{
     margin:auto;
   }
+  .fetching-spinner-item {
+    display: grid;
+    place-items: center;
+    margin-top: 10px;
+}
