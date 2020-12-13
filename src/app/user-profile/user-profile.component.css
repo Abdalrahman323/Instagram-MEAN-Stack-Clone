@@ -1,0 +1,113 @@
+.user-profile-component{
+  margin : 0 13.5%;
+}
+@media screen and (max-width: 400px){
+ .user-profile-component{
+   margin: 0 1%;
+ }
+}
+* {
+  box-sizing: border-box;
+}
+
+body{
+  background: whitesmoke;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+
+nav{
+  background: white;
+  margin-bottom: 25px;
+}
+
+h5 {
+  margin-top: 5px;
+  text-align: right;
+}
+
+header{
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 30px;
+}
+
+header .col-left{
+  margin-right: 25px;
+}
+
+header h1 {
+  font-weight: 400;
+}
+
+header button{
+  background: dodgerblue;
+  border: none;
+  padding: 10px 100px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.user-img{
+  border-radius: 50%;
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+article{
+  margin-bottom: 30px;
+}
+
+aside {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+aside strong{
+  color: black;
+}
+
+.col-stats{
+  width: 33.3333%;
+  text-align: center;
+  color: gray;
+  font-weight: 200;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+section > * {
+  width: 32%;
+  margin-bottom: .5%;
+}
+
+img{
+  width: 100%;
+  display: block;
+}
+
+
+@media screen and (max-width: 400px){
+  aside .col{
+    width: 100%;
+    padding: 10px;
+  }
+  
+  /* section > * {
+    width: 100%;
+    padding: 10px
+  } */
+}
+img:hover{
+  opacity: 0.55;
+  
+}

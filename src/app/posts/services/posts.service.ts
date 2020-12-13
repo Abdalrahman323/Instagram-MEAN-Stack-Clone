@@ -13,7 +13,7 @@ const backend_url = environment.apiUrl+'/posts';
 export class PostsService {
 
   private posts: Post[] = [];
-  private postsUpdated  = new Subject<{posts:Post[],postCount:number}>();
+  private postsUpdated  = new Subject<{newlyFetchedPosts:Post[],postCount:number}>();
 
   constructor( private httpClient :HttpClient , private router:Router) { }
 
@@ -28,13 +28,19 @@ export class PostsService {
     });
   }
 
-  getPosts(){
-    this.httpClient.get<{message :string ,fetchedPosts: any  ,maxPosts:number}>(backend_url)
+  getPosts(postsPerPage:number, currentPageNumber:number){
+    const queryParams =`?page=${currentPageNumber}&pagesize=${postsPerPage}`;
+    
+    this.httpClient.get<{message :string ,fetchedPosts: any  ,maxPosts:number}>
+        (backend_url + queryParams)
          .subscribe(res =>{
-          this.posts = res.fetchedPosts;
+
+          // as no need to store posts in our case
+          this.posts = [...this.posts, ...res.fetchedPosts];
+          //this.posts = res.fetchedPosts;
           // console.log(this.posts);
 
-          this.postsUpdated.next({posts:[...this.posts],postCount: res.maxPosts});
+          this.postsUpdated.next({newlyFetchedPosts:[...res.fetchedPosts],postCount: res.maxPosts});
     })
   }
 

@@ -1,4 +1,4 @@
-.post-container{
+ .post-container{
   max-width: 500px;
   margin: auto;
   margin-top: 30px;
@@ -9,9 +9,9 @@
   border: 1px solid #dbdbdb;
   border: 1px solid rgba(var(--b6a,219,219,219),1);
 }
-@media (max-width: 992px) {   /*medium screen Rules*/
+@media (max-width: 992px) {   
  
- .post-container{ margin:60px 20px;}
+ /* .post-container{ margin:60px 20px;} */
 }
 
 .header {
@@ -37,8 +37,7 @@
   height: 400px;
 }
 .image{
-  max-width: 100%;
+  width: 100%;
   height: 100%;
-  /* object-fit: cover; */
 
-}
+} 

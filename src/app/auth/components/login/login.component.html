@@ -1,4 +1,4 @@
-<mat-card>
+<!-- <mat-card>
     <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
     <mat-form-field>
         <input matInput name="email" ngModel type="email" placeholder="E-mail" #emailInput="ngModel" required email>
@@ -6,12 +6,47 @@
     </mat-form-field>
 
     <mat-form-field>
-        <!-- <input matInput name="password" ngModel type="password" placeholder="Password" #passwordInput="ngModel" required>
-        <mat-error *ngIf="passwordInput.invalid">Please enter a vaild password</mat-error> -->
         <input matInput name="password" ngModel type="password" placeholder="Password" #passwordInput="ngModel" required>
         <mat-error *ngIf="passwordInput.invalid">Please enter a password</mat-error>
     </mat-form-field>
 
     <button  mat-raised-button color="primary" type="submit">Login </button>
     </form>
-</mat-card>
+</mat-card> -->
+<!-- Made with love by Apratim Shukla -->
+
+
+
+
+<div class="login">
+  
+  <h1><img src="assets\icons\instagram-wordmark.svg" width="200px" height="68px"></h1>
+
+  <form action="" method="POST">
+  
+  <input placeholder="Phone number, username, or email" type="text" name="username" >
+  <input placeholder="Password" type="password" name="password">
+  
+  <input type="submit" value="Log In" /><br>
+
+  </form>
+
+  <div class="divider"><b>OR</b></div>
+
+  <div class="fbwrapper"><div class="fb"><a href="#"><img src="https://i.imgur.com/exksovo.png">  Log in with Facebook</a></div></div>
+
+  <div class="forgotwrapper"><div class="forgot"><a href="#">Forgot password?</a></div></div>
+
+  
+</div>
+
+
+<div class="infobox">
+  
+  <p>Don't have an account? <a href="#">Sign up</a></p>
+  
+</div>
+
+
+
+
