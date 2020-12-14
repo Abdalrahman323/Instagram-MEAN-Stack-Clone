@@ -1,1 +1,36 @@
-<p>sign-up works!</p>
+
+<div class="login">
+
+    <div class="logo-container" >
+        <img src="assets\icons\instagram-wordmark.svg" width="200px" height="68px">
+    </div>
+
+    <form (submit)="onSignUp(signUpForm)" #signUpForm="ngForm">
+
+        <mat-form-field>
+            <input matInput name="email" ngModel type="email" placeholder="E-mail" #emailInput="ngModel" required email>
+            <mat-error *ngIf="emailInput.invalid">Please enter a valid email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput name="password1" ngModel type="password" placeholder="Password" 
+            #passwordInput1="ngModel"
+                required>
+            <mat-error *ngIf="passwordInput1.invalid">Please enter a password</mat-error>
+            <mat-error *ngIf="passwordInput1.value != passwordInput2.value">the 2 password are mismatched</mat-error>
+
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput name="password2" ngModel type="password" placeholder="Re Enter your Password"
+                #passwordInput2="ngModel" required>
+            <mat-error *ngIf="passwordInput2.invalid">Please enter a password</mat-error>
+
+        </mat-form-field>
+        <div class="mismatchedPassword" *ngIf="isPasswordsMismatched">
+            the 2 passwords are mismatched
+        </div>
+        <input type="submit" value="SignUp" /><br>
+
+    </form>
+
+</div>

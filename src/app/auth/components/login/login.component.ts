@@ -14,9 +14,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   onLogin(loginForm : NgForm){
+    if(loginForm.invalid){
+      return;
+    }
     const authData= {} as AuthData;
     authData.email = loginForm.value.email;
     authData.password = loginForm.value.password;
-
+   console.log(JSON.stringify(authData));
   }
 }

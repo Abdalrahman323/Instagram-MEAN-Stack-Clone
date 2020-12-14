@@ -1,0 +1,92 @@
+.login {
+    background: #fff;
+    border: 1px solid rgb(236, 234, 234);
+    border-radius: 0px;
+    margin: 30px auto 0;
+    padding: 0 15px;
+    max-width: 400px; 
+    height: 380px;
+  }
+  @media (max-width: 400px) {   
+ 
+    .login{
+      max-width: 300px; 
+    }
+
+   }
+  .logo-container {
+    box-sizing: border-box;
+    margin: 20px 0 30px 0;
+    text-align: center;
+    user-select: none;
+  }
+  mat-form-field {
+    background: rgba(250,250,250,1);
+    border: 1px solid rgb(236, 234, 234);
+    border-radius: 3px;
+    box-shadow: 0 1px #fff;
+    box-sizing: border-box;
+    color: black;
+    height: 39px;
+    margin: 10px 0;
+    padding: 0 10px;
+    font-size: 13px;
+    width: 100%;
+  }
+  input[type="password"]::placeholder, input[type="text"]::placeholder {
+    color: rgb(165, 164, 164);
+  }
+  input[type="password"]:focus, input[type="text"]:focus {
+    outline: 0;
+    border: 1px solid #a1a1a1;
+  }
+  
+  .forgot {
+    color: #7f7f7f;
+    display: inline-block;
+    box-sizing: border-box;
+    font: 12px/1 sans-serif;
+    left: -19px;
+    position: relative;
+    text-decoration: none;
+    top: -15px;
+    transition: color .4s;
+  }
+  .forgot:hover { color: #3b3b3b }
+  
+  input[type="submit"] {
+    background: #3897F0;
+    border: 0px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #f8f8f8;
+    font-weight: 600;
+    height: 29px;
+    margin: 14px 0;
+    width: 100%;
+  }
+  input[type="submit"]:hover, input[type="submit"]:focus {
+    background: rgb(48, 144, 233);
+    outline: 0;
+  }
+  
+  
+  .divider {
+    overflow: hidden;
+    text-align: center;
+    box-sizing: border-box;
+    color:rgb(165, 164, 164);
+    font-size: 13.5px;
+    font-weight: 500;
+    margin: 20px 0 0 5px;
+    width: 95%;
+  }
+  .mismatchedPassword{
+    text-align: center;
+    font-size: 12px;
+    color: red;
+    border: 1px dashed;
+  }
+  
+
+  
