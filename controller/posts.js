@@ -8,7 +8,8 @@ exports.createPost =(req,res,next)=>{
     
     const post = new Post({
         title:"Hardcoded Image title",
-        photo: photoEncoded
+        photo: photoEncoded,
+        postedBy : req.body.postedBy
     });
     
 

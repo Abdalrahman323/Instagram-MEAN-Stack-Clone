@@ -41,7 +41,6 @@ exports.login= (req,res,next)=>{
             return res.status(401).json({message : 'Authenticatin failed'});
         }
        //  we have a valid password
-       console.log("valid");
 
        const token = jwt.sign({email:fetchedUser.email,userId: fetchedUser._id},
         process.env.JWT_KEY,
