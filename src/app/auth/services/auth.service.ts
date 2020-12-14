@@ -26,6 +26,9 @@ export class AuthService {
   getIsAuth() {
     return this.isAuthenticated;
   }
+  getUserId(){
+    return this.userId;
+  }
 
   private saveAuthData(token: string, expirationData: Date, userId: string) {
     localStorage.setItem("token", token);
@@ -80,7 +83,7 @@ export class AuthService {
       this.userId = authInformation.userId
 
       this.authStatusListener.next(true);
-      this.setAuthTimer(expiresIn / 1000);
+      this.setAuthTimer(expiresIn / 1000); // convert to second
 
     }
   }

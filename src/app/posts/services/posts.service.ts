@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 const backend_url = environment.apiUrl+'/posts';
 
@@ -15,15 +16,15 @@ export class PostsService {
   private posts: Post[] = [];
   private postsUpdated  = new Subject<{newlyFetchedPosts:Post[],postCount:number}>();
 
-  constructor( private httpClient :HttpClient , private router:Router) { }
+  constructor( private authService:AuthService, private httpClient :HttpClient , private router:Router) { }
 
   getPostsUpdatedlistenter(){
     return this.postsUpdated.asObservable();
   }
 
   createPost(Post :Post){
+     Post.postedBy = this.authService.getUserId();
     this.httpClient.post(backend_url,Post).subscribe(resData =>{
-      // console.log("image created successfully");
       this.router.navigate(['/']);
     });
   }
