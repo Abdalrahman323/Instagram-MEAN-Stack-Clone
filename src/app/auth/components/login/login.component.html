@@ -1,27 +1,11 @@
-  <!-- <mat-card>
-      <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
-      <mat-form-field>
-          <input matInput name="email" ngModel type="email" placeholder="E-mail" #emailInput="ngModel" required email>
-          <mat-error *ngIf="emailInput.invalid">Please enter a valid email</mat-error>
-      </mat-form-field>
+<mat-spinner *ngIf="isLoading"  [mode]="'indeterminate'" [diameter]="50"></mat-spinner>
 
-      <mat-form-field>
-          <input matInput name="password" ngModel type="password" placeholder="Password" #passwordInput="ngModel" required>
-          <mat-error *ngIf="passwordInput.invalid">Please enter a password</mat-error>
-      </mat-form-field>
-
-      <button  mat-raised-button color="primary" type="submit">Login </button>
-      </form>
-  </mat-card> -->
-  <!-- Made with love by Apratim Shukla -->
-
-
-
-
-  <div class="login">
+  <div *ngIf="!isLoading" class="login">
     
     <h1><img src="assets\icons\instagram-wordmark.svg" width="200px" height="68px"></h1>
-
+    <div *ngIf="loginError" class="login-error" >
+      the email or password is incorrect
+    </div>
     <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
     
       <mat-form-field>
@@ -41,9 +25,7 @@
     <div class="divider"><b>OR</b></div>
     
   </div>
-
-
-  <div class="infobox">
+  <div *ngIf="!isLoading" class="infobox">
     
     <p>Don't have an account? <a routerLink="/signup">Sign up</a></p>
     

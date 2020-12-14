@@ -5,7 +5,7 @@
     <img routerLink="/" class="icon" src="assets/icons/explore-24px.svg">
     <img routerLink='/create' class="icon" src="assets/icons/add_a_photo-24px.svg">
     <img routerLink='/user' class="icon"src="assets/icons/account_circle-24px.svg">
-    <img routerLink="/login" routerLinkActive="router-link-active"  class="icon" src="assets/icons/exit_to_app-24px.svg">
+    <img *ngIf="isAuthenticated" (click)=logOut() routerLinkActive="router-link-active"  class="icon" src="assets/icons/exit_to_app-24px.svg">
     <!-- <svg-icon src="assets/icons//exit_to_app-24px.svg" [svgStyle]="{ 'width.px':90 }"></svg-icon> -->
 
   </nav>

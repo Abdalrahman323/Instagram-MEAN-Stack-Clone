@@ -5,11 +5,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { SignUpComponent } from './auth/components/sign-up/sign-up.component';
-
+import {AuthGuardService} from './auth/services/auth-guard.service'
 
 const routes: Routes = [
 {path:'',component:PostListComponent},
-{path:'create',component:CreatePostComponent},
+{path:'create',component:CreatePostComponent,canActivate:[AuthGuardService]},
 {path:"user",component:UserProfileComponent},
 {path:"login",component:LoginComponent},
 {path:"signup",component:SignUpComponent}
