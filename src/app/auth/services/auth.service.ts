@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AuthData } from '../auth-data.model';
-const Backend_URL = environment.apiUrl + '/user'
+const Backend_URL = environment.apiUrl + '/auth'
 
 @Injectable({
   providedIn: 'root'

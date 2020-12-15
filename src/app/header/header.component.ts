@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/services/auth.service';
 
@@ -11,10 +12,13 @@ export class HeaderComponent implements OnInit ,OnDestroy {
 
   authStatusSubscription:Subscription;
   isAuthenticated;
-  constructor(private authservice :AuthService) { }
+  userId;
+  constructor(private authservice :AuthService ,private router:Router) { }
 
   ngOnInit(): void {
     this.isAuthenticated = this.authservice.getIsAuth();
+    this.userId = this.authservice.getUserId();
+
     this.authStatusSubscription = this.authservice.getAuthStatusListener()
     .subscribe(authStaus => {
       // meaning there is an error
@@ -22,8 +26,13 @@ export class HeaderComponent implements OnInit ,OnDestroy {
         this.isAuthenticated = false;
       }else{
         this.isAuthenticated = true;
+        this.userId = this.authservice.getUserId();
       }
     });
+  }
+
+  toUserProfile(){
+    this.router.navigate(['/user/'+ this.userId]);
   }
 
   logOut(){

@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CreatePostComponent } from './posts/components/create-post/create-post.component';
 import { PostComponent } from './posts/components/post/post.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserProfileComponent } from './user/components/user-profile/user-profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostListComponent } from './posts/components/post-list/post-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

@@ -1,0 +1,34 @@
+<div *ngIf="isLoading" class="loading-spinner-item">  
+  <mat-spinner    [mode]="'indeterminate'" [diameter]="50"></mat-spinner>
+</div>
+<div *ngIf="!isLoading" class="user-profile-component">
+  <aside>
+    <div class='col-stats'>
+      <strong>{{posts.length}}</strong>
+      <br/>
+      posts
+    </div>
+    <div class='col-stats'>
+      <strong>292</strong>
+      <br/>
+      followers
+    </div>
+    <div class='col-stats'>
+      <strong>8292</strong>
+      <br/>
+      following
+    </div>
+  </aside>
+  
+  <section>
+    <div *ngFor="let post of posts">
+        <img [src]="post.photo" alt="">
+       <!-- <h5>Monks</h5> -->
+    </div>
+
+  </section>
+
+</div>
+ 
+
+  
