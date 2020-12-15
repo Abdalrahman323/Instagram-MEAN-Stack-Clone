@@ -94,13 +94,14 @@ section {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   margin-bottom: 30px;
 }
 
 section > * {
   width: 32%;
   margin-bottom: .5%;
+  margin-inline-start: 1%;
 }
 
 img{

@@ -1,5 +1,6 @@
-<mat-spinner *ngIf="isLoading"  [mode]="'indeterminate'" [diameter]="50"></mat-spinner>
-
+<div *ngIf="isLoading" class="loading-spinner-item">  
+  <mat-spinner    [mode]="'indeterminate'" [diameter]="50"></mat-spinner>
+</div>
   <div *ngIf="!isLoading" class="login">
     
     <h1><img src="assets\icons\instagram-wordmark.svg" width="200px" height="68px"></h1>

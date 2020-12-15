@@ -1,7 +1,7 @@
 <div class="post-container">
    <div class="header">
       <div class="user-thumbnail"></div>
-      <div class="user-name"> {{post.title}}</div>
+      <div (click)="navigateToUser(post.postedBy.id)" class="user-name">{{post.postedBy.name}}</div>
    </div>
    <div class="Image-container">
     <img class="image" [src]="post.photo" alt="">

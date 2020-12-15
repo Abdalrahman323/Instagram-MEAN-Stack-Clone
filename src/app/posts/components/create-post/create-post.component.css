@@ -15,6 +15,14 @@ input[type="file"]{
   margin: auto;
 }
 
+.loading-spinner-item{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
 mat-spinner{
 
   margin:auto;

@@ -1,5 +1,5 @@
 export interface Post {
   title: string;
   photo: any;
-  postedBy?:string;
+  postedBy?:any;
 }
