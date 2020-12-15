@@ -31,7 +31,8 @@ exports.getPosts=(req,res,next)=>{
 
    let fetchedPosts = [];
    const postQuery = Post.find()
-                         .sort('-createdAt');
+                        .populate('postedBy','email')
+                        .sort('-createdAt');
    
    if(pageSize&&currentPage){
        postQuery
@@ -45,7 +46,11 @@ exports.getPosts=(req,res,next)=>{
         fetchedPosts.push({
                _id:item.id,
                title:item.title,
-               photo:item.photo
+               photo:item.photo,
+               postedBy:{
+                   name: item.postedBy.email,
+                   id:item.postedBy._id
+               }
            })
        })
     return Post.countDocuments();
