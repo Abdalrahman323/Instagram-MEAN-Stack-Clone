@@ -31,20 +31,24 @@ export class PostComponent implements OnInit {
 
   toggleLike() {
 
-    if (!this.post.isLiked) {
-     console.log(this.post.id);
+    // using optimistic approach
+    this.post.isLiked = !this.post.isLiked;
 
+    if (!this.post.isLiked) {
+
+      this.post.isLiked = true;
       this.postsService.likePost(this.post.id).subscribe(res => {
-        this.post.isLiked = true;
         this.post.numberOfLikes++;
+      },error =>{
+        this.post.isLiked = !this.post.isLiked;
       })
 
     }
     else {
       this.postsService.unlikePost(this.post.id).subscribe(res => {
-        this.post.isLiked = false;
         this.post.numberOfLikes--;
-
+      },error =>{
+        this.post.isLiked = !this.post.isLiked;
       });
 
 
