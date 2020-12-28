@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { map } from 'rxjs/operators';
 
 const backend_url = environment.apiUrl+'/posts';
 
@@ -31,18 +32,59 @@ export class PostsService {
 
   getPosts(postsPerPage:number, currentPageNumber:number){
     const queryParams =`?page=${currentPageNumber}&pagesize=${postsPerPage}`;
-    
+
     this.httpClient.get<{message :string ,fetchedPosts: any  ,maxPosts:number}>
         (backend_url + queryParams)
-         .subscribe(res =>{
+        .pipe(map(postData =>{
+          return { posts : postData.fetchedPosts.map(fetchedPost =>{
+
+              return {
+                id :fetchedPost._id,
+                title : fetchedPost.title,
+                postedBy : fetchedPost.postedBy,
+                photo : fetchedPost.photo,
+                isLiked : this.isLikedByUser(fetchedPost.likes),
+                numberOfLikes : fetchedPost.likes.length
+
+              }
+          })
+            ,
+            maxPosts:postData.maxPosts
+
+
+          }
+        }))
+         .subscribe( (mappedFetchedPosts) =>{
 
           // as no need to store posts in our case
-          this.posts = [...this.posts, ...res.fetchedPosts];
+          this.posts = [...this.posts, ...mappedFetchedPosts.posts];
           //this.posts = res.fetchedPosts;
           // console.log(this.posts);
+         // this.checklikesOfPosts(res.fetchedPosts);
 
-          this.postsUpdated.next({newlyFetchedPosts:[...res.fetchedPosts],postCount: res.maxPosts});
+          this.postsUpdated.next({newlyFetchedPosts:[...mappedFetchedPosts.posts],postCount: mappedFetchedPosts.maxPosts});
     })
   }
+  isLikedByUser(likes : Array<any>){
+//const course = courses.find( course => course.name=== 'a');
+    if( likes.find(userid => userid == this.authService.getUserId()) )
+        return true
 
+    else
+        return false
+
+  }
+
+  likePost(PostId:string){
+    const reqBody ={ postId : PostId , userId : this.authService.getUserId()}
+
+    return this.httpClient.put(backend_url +'/like' , reqBody);
+  }
+
+  unlikePost (PostId:string){
+    const reqBody = {postId :PostId , userId :this.authService.getUserId()}
+
+    return this.httpClient.put(backend_url+ '/unlike',reqBody)
+
+  }
 }

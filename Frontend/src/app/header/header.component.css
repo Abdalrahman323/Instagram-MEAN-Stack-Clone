@@ -26,21 +26,15 @@
 
 .nav-bar .icon {
   margin-inline-start: 22px;
+  outline: black;
+
 }
 
-/* .nav-bar #twitter-logo {
-  height: 40px;
-  margin: 0 16px;
-} */
-
-/* .nav-bar #twitter-logo:hover {
-  opacity: 0.8;
-} */
 .spacer {
   flex: 1;
 }
 .instagram-logo{
-  width: 90px;
+  width: 103px;
 }
 .icon:hover{
 cursor: pointer;

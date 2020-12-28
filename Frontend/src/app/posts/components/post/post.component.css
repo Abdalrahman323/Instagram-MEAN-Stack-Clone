@@ -1,46 +1,166 @@
- .post-container{
-  max-width: 500px;
-  margin: auto;
+.post-container {
+  max-width: 614px;
+  /* margin: auto; */
   margin-top: 30px;
   margin-bottom: 60px;
 
-  background-color: rgba(var(--d87,255,255,255),1);
+  background-color: rgba(var(--d87, 255, 255, 255), 1);
   border-radius: 3px;
   border: 1px solid #dbdbdb;
-  border: 1px solid rgba(var(--b6a,219,219,219),1);
-}
-@media (max-width: 992px) {   
- 
- /* .post-container{ margin:60px 20px;} */
+  border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
 }
 
+.icons {
+  display: flex;
+  flex-direction: row;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.icon {
+  width: 24px;
+  height: 24px;
+  padding: 12px;
+  padding-inline-start: 0;
+  padding-bottom: 0;
+  /* outline: black; */
+}
+.liked {
+  fill: rgb(237, 73, 86);
+
+}
+.icon:hover {
+  cursor: pointer;
+}
 .header {
-  display :flex;
+  display: flex;
   height: 27px;
   background-color: gold;
-  padding:16px;
-  border-bottom: 1px solid rgba(var(--ce3,239,239,239),1);
+  padding: 16px;
+  border-bottom: 1px solid rgba(var(--ce3, 239, 239, 239), 1);
   background-color: #fff;
 }
-.user-thumbnail{
+.user-thumbnail {
   width: 30px;
   height: 30px;
   border-radius: 100%;
   background-size: cover;
   background-image: url(http://www.publicdomainpictures.net/pictures/170000/velka/spinach-leaves-1461774375kTU.jpg);
 }
-.user-name{
+.user-name {
   margin-inline-start: 14px;
   font-size: 14px;
 }
-.user-name:hover{
+.user-name:hover {
   cursor: pointer;
 }
-.Image-container{
-  height: 400px;
+.Image-container {
+  height: auto;
+  position: relative;
 }
-.image{
-  width: 100%;
-  height: 100%;
+.Image-container:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
+}
 
-} 
+.image {
+  position: absolute; /* Take your picture out of the flow */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; /* Make the picture taking the size of it's parent */
+  width: 100%; /* This if for the object-fit */
+  height: 100%; /* This if for the object-fit */
+  object-fit: fill; /* Equivalent of the background-size: cover; of a background-image */
+  object-position: center;
+}
+.footer {
+  padding: 0 14px;
+}
+.likes-counter{
+  margin-bottom: 8px;
+}
+.post-caption{
+  white-space: nowrap;
+  width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.post-caption-section{
+  display: flex;
+}
+.more-txt{
+  color: #8e8e8e;
+  cursor: pointer;
+}
+.remove-ellipses{
+  width: auto !important;
+  white-space:normal !important;
+}
+.comment-section {
+  border-top: 1px solid rgba(var(--ce3, 239, 239, 239), 1);
+  display: flex;
+  justify-content: space-between;
+  min-height: 56px;
+}
+.comment-text-area {
+  width: 90%;
+  padding-top: 10px;
+  border: none;
+  outline: none;
+  resize: none;
+
+}
+.post-btn {
+  border: none;
+  background: no-repeat;
+  color: #0095f6;
+  cursor: pointer;
+  outline:none;
+}
+
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 923px) {
+  .Image-container {
+    height: 614px;
+  }
+  /* .post-container {
+    max-width: 614px;
+  } */
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  .Image-container {
+    height: 600px;
+  }
+  .post-container {
+    max-width: 600px;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .Image-container {
+    height: auto;
+  }
+  .post-container {
+    max-width: auto;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  .post-caption{
+    white-space: nowrap;
+    width: 246px;
+  }
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+}

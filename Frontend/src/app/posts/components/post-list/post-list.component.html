@@ -1,15 +1,19 @@
- <div class="posts-component">
-  <div *ngIf="isLoading" class="loading-spinner-item">  
-      <mat-spinner    [mode]="'indeterminate'" [diameter]="50"></mat-spinner>
+<div  class="posts-component">
+  <div *ngIf="isLoading" class="loading-spinner-item">
+    <mat-spinner [mode]="'indeterminate'" [diameter]="50"></mat-spinner>
   </div>
-    <cdk-virtual-scroll-viewport #scroller style="height: calc(100vh - 54px);" itemSize="520" class="content" >      
-      <ng-container  *cdkVirtualFor="let post of posts" >
-        <post [post]="post" ></post>
+  <div class="test"></div>
+  <div class="content">
+
+    <cdk-virtual-scroll-viewport #scroller style="height: calc(100vh - 54px);" [itemSize]="634">
+      <ng-container *cdkVirtualFor="let post of posts">
+        <post [post]="post"></post>
       </ng-container>
       <div *ngIf="isThereMorePosts()" class="fetching-spinner-item">
         <mat-progress-spinner [mode]="'indeterminate'" [diameter]="50"></mat-progress-spinner>
       </div>
-    </cdk-virtual-scroll-viewport>    
+    </cdk-virtual-scroll-viewport>
+
+  </div>
+
 </div>
-
-

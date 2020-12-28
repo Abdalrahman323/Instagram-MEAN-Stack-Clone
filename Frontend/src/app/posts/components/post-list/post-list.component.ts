@@ -1,5 +1,5 @@
 import { PostsService } from './../../services/posts.service';
-import { AfterViewInit, Component, NgZone, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Post } from '../../post.model';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
@@ -13,9 +13,13 @@ import { timer } from 'rxjs';
 export class PostListComponent implements OnInit ,AfterViewInit {
 
   @ViewChild('scroller') scroller: CdkVirtualScrollViewport;
+  @ViewChild('postElement') elementView: ElementRef;
+
 
   private postsPerPage = 2;
   private currentPageNumber =1;
+
+  curItemSize = 614;
 
   postsSupscription: Subscription;
   posts: Post[] = [];
@@ -46,12 +50,13 @@ export class PostListComponent implements OnInit ,AfterViewInit {
     ).subscribe(() => {
       this.ngZone.run(() => {
         this.fetchMorePosts();
-        
+
       });
     }
     );
+
   }
- 
+
   fetchMorePosts(){
     if(this.isThereMorePosts()){
       this.currentPageNumber ++;
@@ -65,4 +70,6 @@ export class PostListComponent implements OnInit ,AfterViewInit {
   isThereMorePosts():boolean{
     return (this.currentPageNumber)* this.postsPerPage <  this.totalPosts;
   }
+
+
 }

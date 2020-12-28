@@ -2,6 +2,10 @@
   height: 100%;
 
 }
+.content{
+  margin:auto;
+  max-width: 975px;
+}
 .loading-spinner-item{
     height: 100%;
     display: flex;
@@ -17,4 +21,14 @@ mat-spinner{
     display: grid;
     place-items: center;
     margin-top: 10px;
+}
+
+
+cdk-virtual-scroll-viewport {
+ /* overflow: auto;
+ contain:none; */
+}
+.test{
+  width: 50%;
+  background-color: red;
 }

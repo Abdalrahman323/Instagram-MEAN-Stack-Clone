@@ -1,12 +1,45 @@
 <div class="post-container">
-   <div class="header">
-      <div class="user-thumbnail"></div>
-      <div (click)="navigateToUser(post.postedBy.id)" class="user-name">{{post.postedBy.name}}</div>
-   </div>
-   <div class="Image-container">
+  <div class="header">
+    <div class="user-thumbnail"></div>
+    <div (click)="navigateToUser(post.postedBy.id)" class="user-name">{{post.postedBy.name}}</div>
+  </div>
+  <div class="Image-container">
     <img class="image" [src]="post.photo" alt="">
-   </div>
-   <div class="footer">
+  </div>
+  <div *ngIf="authService.getIsAuth()" class="footer">
+    <section class="icons">
 
-   </div>
+      <svg-icon *ngIf="!post.isLiked" (click)="toggleLike()" class="icon" src="assets/icons/heart.svg"
+        [svgStyle]="{ 'width.px':22 ,'height.px':22 }"></svg-icon>
+      <svg-icon *ngIf="post.isLiked" (click)="toggleLike()" class="icon liked" src="assets/icons/like.svg"
+        [svgStyle]="{ 'width.px':22 ,'height.px':22  }"></svg-icon>
+
+      <svg-icon class="icon" class="icon" src="assets/icons/comment.svg" [svgStyle]="{ 'width.px':22 ,'height.px':22 }">
+      </svg-icon>
+      <svg-icon class="icon" class="icon" src="assets/icons/send.svg" [svgStyle]="{ 'width.px':22 ,'height.px':22 }">
+      </svg-icon>
+      <div class="spacer"></div>
+      <svg-icon class="icon" style="padding-inline-end:0 ;" src="assets/icons/bookmark.svg"
+        [svgStyle]="{ 'width.px':20 ,'height.px':20  }"></svg-icon>
+    </section>
+    <section *ngIf="post.numberOfLikes>0" class="likes-counter">
+      {{post.numberOfLikes}} likes
+    </section>
+    <section class="post-caption-section">
+      <div class="post-caption" [ngClass]="{'remove-ellipses': isCaptionExpanded}">
+        thegamenavigatortg #sixty_challenge #tgdoc
+        #delayeddocs
+        #نجاح #خواطر #تحفيز #حياة #تفاؤل #ارادة #تمرينات #اسلوب_حياة #ثراء #تطوير_النفس
+        #تحديات #تحدي_القراءة #تحديث
+        #اكسبلور_فولو #لايك #اكسبلور #متابعين #متفاعل #اكسبلور_2020 #انستغرام #اكسبلور_explore #انستغرام
+        #latetgdocs
+        #أمل #تأمل #تنمية #ايجابي #تطوير_الذات
+      </div>
+      <div *ngIf="!isCaptionExpanded" (click)="expandCaption()" class="more-txt">more</div>
+    </section>
+    <section class="comment-section">
+      <textarea class="comment-text-area" placeholder="Add a comment…"></textarea>
+      <button class="post-btn"> Post</button>
+    </section>
+  </div>
 </div>
