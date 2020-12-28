@@ -15,7 +15,7 @@ export class PostComponent implements OnInit {
 
   isCaptionExpanded = false;
 
-  constructor( public authService:AuthService,private postsService: PostsService, private router: Router) { }
+  constructor(public authService: AuthService, private postsService: PostsService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -32,23 +32,24 @@ export class PostComponent implements OnInit {
   toggleLike() {
 
     // using optimistic approach
+
     this.post.isLiked = !this.post.isLiked;
+    this.post.numberOfLikes += this.post.isLiked? 1 : -1;
+    if (this.post.isLiked) {
 
-    if (!this.post.isLiked) {
-
-      this.post.isLiked = true;
       this.postsService.likePost(this.post.id).subscribe(res => {
-        this.post.numberOfLikes++;
-      },error =>{
+      }, error => {
         this.post.isLiked = !this.post.isLiked;
+        this.post.numberOfLikes--;
+
       })
 
     }
     else {
       this.postsService.unlikePost(this.post.id).subscribe(res => {
-        this.post.numberOfLikes--;
-      },error =>{
+      }, error => {
         this.post.isLiked = !this.post.isLiked;
+        this.post.numberOfLikes++;
       });
 
 
