@@ -7,7 +7,7 @@ exports.createPost = (req, res, next) => {
     const photoEncoded = req.body.photo;
 
     const post = new Post({
-        title: "Hardcoded Image title",
+        caption: req.body.caption,
         photo: photoEncoded,
         postedBy: req.body.postedBy
     });
@@ -47,6 +47,7 @@ exports.getPosts = (req, res, next) => {
                 _id: item.id,
                 title: item.title,
                 photo: item.photo,
+                caption : item.caption,
                 postedBy: {
                     name: item.postedBy.email,
                     id: item.postedBy._id

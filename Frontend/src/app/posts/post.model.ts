@@ -1,6 +1,6 @@
 export interface Post {
   id :string,
-  title: string;
+  caption: string;
   photo: any;
   postedBy?:any;
   isLiked:boolean;

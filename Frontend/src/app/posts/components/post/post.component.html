@@ -27,13 +27,7 @@
     </section>
     <section class="post-caption-section">
       <div class="post-caption" [ngClass]="{'remove-ellipses': isCaptionExpanded}">
-        thegamenavigatortg #sixty_challenge #tgdoc
-        #delayeddocs
-        #نجاح #خواطر #تحفيز #حياة #تفاؤل #ارادة #تمرينات #اسلوب_حياة #ثراء #تطوير_النفس
-        #تحديات #تحدي_القراءة #تحديث
-        #اكسبلور_فولو #لايك #اكسبلور #متابعين #متفاعل #اكسبلور_2020 #انستغرام #اكسبلور_explore #انستغرام
-        #latetgdocs
-        #أمل #تأمل #تنمية #ايجابي #تطوير_الذات
+        <a (click)="navigateToUser(post.postedBy.id)" class="post-creator"> {{post.postedBy.name}} </a>  {{post.caption}}
       </div>
       <div *ngIf="!isCaptionExpanded" (click)="expandCaption()" class="more-txt">more</div>
     </section>

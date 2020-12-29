@@ -89,6 +89,14 @@
 .post-caption-section{
   display: flex;
 }
+.post-creator{
+  font-weight: 600;
+}
+.post-creator:hover{
+  cursor: pointer;
+  text-decoration: underline;
+
+}
 .more-txt{
   color: #8e8e8e;
   cursor: pointer;

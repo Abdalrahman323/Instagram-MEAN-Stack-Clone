@@ -40,7 +40,7 @@ export class PostsService {
 
               return {
                 id :fetchedPost._id,
-                title : fetchedPost.title,
+                caption : fetchedPost.caption,
                 postedBy : fetchedPost.postedBy,
                 photo : fetchedPost.photo,
                 isLiked : this.isLikedByUser(fetchedPost.likes),
