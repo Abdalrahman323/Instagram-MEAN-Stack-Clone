@@ -24,6 +24,7 @@
     "angular-svg-icon": "^10.0.0",
     "blueimp-canvas-to-blob": "^3.28.0",
     "ng2-img-max": "^2.2.4",
+    "ngx-virtual-scroller": "^4.0.3",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

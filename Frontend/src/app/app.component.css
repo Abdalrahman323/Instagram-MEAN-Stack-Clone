@@ -11,8 +11,8 @@
 .main-content{
   height: calc(100% - 54px);
   overflow: auto;
-  margin: 0 auto;
-  max-width: 975px;
+  /* margin: 0 auto; */
+  /* max-width: 975px; */
 }
                            /* Responsive Design  */
 @media (min-width: 992px) {   /*medium screen Rules*/

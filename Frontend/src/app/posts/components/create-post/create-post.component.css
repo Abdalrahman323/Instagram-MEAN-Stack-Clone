@@ -1,3 +1,9 @@
+.create-post-component{
+
+  max-width: 975px;
+  margin: auto;
+
+}
 input[type="file"]{
   visibility: hidden;
 }
@@ -7,12 +13,6 @@ input[type="file"]{
 }
 .image-preview img{
  height: 100%;
-}
-.createPage-component{
-  height: 100%;
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
 }
 
 .loading-spinner-item{

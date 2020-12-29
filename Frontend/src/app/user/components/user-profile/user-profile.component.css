@@ -13,6 +13,8 @@ mat-spinner{
 
 .user-profile-component{
   /* margin : 0 13.5%; */
+  max-width: 975px;
+  margin: auto;
 }
 @media screen and (max-width: 400px){
  .user-profile-component{

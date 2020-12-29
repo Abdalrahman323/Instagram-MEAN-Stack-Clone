@@ -1,15 +1,31 @@
-<div  class="posts-component">
-  <div *ngIf="isLoading" class="loading-spinner-item">
-    <mat-spinner [mode]="'indeterminate'" [diameter]="50"></mat-spinner>
+<!-- <div *ngIf="isLoading" class="loading-spinner-item">
+  <mat-spinner [mode]="'indeterminate'" [diameter]="50"></mat-spinner>
+</div> -->
+<div class="postlist-component" #scrollingBlock>
+
+  <virtual-scroller class="post-section" #scroll [items]="posts"
+    [parentScroll]="scrollingBlock"
+    (vsEnd)="fetchMore($event)">
+    <post class="post-container" *ngFor="let item of scroll.viewPortItems" [post]="item">
+    </post>
+    <div *ngIf="isLoading" class="loading-spinner-item">
+      <mat-spinner [mode]="'indeterminate'" [diameter]="50"></mat-spinner>
+    </div>
+
+  </virtual-scroller>
+
+  <div class="suggestion-component">
+    <!-- not implemented yet -->
   </div>
 
-    <cdk-virtual-scroll-viewport #scroller style="height: calc(100vh - 54px);" [itemSize]="634">
+  <!-- <cdk-virtual-scroll-viewport #scroller style="height: calc(100vh - 54px);" [itemSize]="634">
       <ng-container *cdkVirtualFor="let post of posts">
         <post [post]="post"></post>
       </ng-container>
       <div *ngIf="isThereMorePosts()" class="fetching-spinner-item">
         <mat-progress-spinner [mode]="'indeterminate'" [diameter]="50"></mat-progress-spinner>
       </div>
-    </cdk-virtual-scroll-viewport>
+    </cdk-virtual-scroll-viewport> -->
+
 
 </div>

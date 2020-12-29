@@ -5,35 +5,40 @@ import { Post } from '../../post.model';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { filter, map, pairwise, throttleTime } from 'rxjs/operators'
 import { timer } from 'rxjs';
+import { IPageInfo } from 'ngx-virtual-scroller';
+
 @Component({
   selector: 'post-list',
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css']
 })
-export class PostListComponent implements OnInit ,AfterViewInit {
+export class PostListComponent implements OnInit, AfterViewInit {
 
   @ViewChild('scroller') scroller: CdkVirtualScrollViewport;
   @ViewChild('postElement') elementView: ElementRef;
 
 
   private postsPerPage = 2;
-  private currentPageNumber =1;
+  private currentPageNumber = 1;
 
   curItemSize = 614;
 
   postsSupscription: Subscription;
+  protected buffer: Post[] = [];
+
   posts: Post[] = [];
   totalPosts = 0;
   isLoading
 
-  constructor(private postService: PostsService ,private ngZone: NgZone) { }
+  constructor(private postService: PostsService, private ngZone: NgZone) { }
 
 
   ngOnInit(): void {
 
+
     this.isLoading = true;
 
-    this.postService.getPosts(this.postsPerPage,this.currentPageNumber);
+    this.postService.getPosts(this.postsPerPage, this.currentPageNumber);
     this.postsSupscription = this.postService.getPostsUpdatedlistenter()
       .subscribe((postData: { newlyFetchedPosts: Post[], postCount: number }) => {
         this.posts = [...this.posts, ...postData.newlyFetchedPosts];
@@ -42,33 +47,45 @@ export class PostListComponent implements OnInit ,AfterViewInit {
       });
   }
   ngAfterViewInit(): void {
-    this.scroller.elementScrolled().pipe(
-      map(() => this.scroller.measureScrollOffset('bottom')),
-      pairwise(),
-      filter(([y1, y2]) => (y2 < y1 && y2 < 140)),
-      throttleTime(200)
-    ).subscribe(() => {
-      this.ngZone.run(() => {
-        this.fetchMorePosts();
+    // this.scroller.elementScrolled().pipe(
+    //   map(() => this.scroller.measureScrollOffset('bottom')),
+    //   pairwise(),
+    //   filter(([y1, y2]) => (y2 < y1 && y2 < 140)),
+    //   throttleTime(200)
+    // ).subscribe(() => {
+    //   this.ngZone.run(() => {
+    //     this.fetchMorePosts();
 
-      });
-    }
-    );
+    //   });
+    // }
+    // );
 
   }
 
-  fetchMorePosts(){
-    if(this.isThereMorePosts()){
-      this.currentPageNumber ++;
-     // timer(1000).subscribe(()=>{
-        this.postService.getPosts(this.postsPerPage,this.currentPageNumber);
-     //});
+  fetchMorePosts() {
+    if (this.isThereMorePosts()) {
+      this.currentPageNumber++;
+      // timer(1000).subscribe(()=>{
+      this.postService.getPosts(this.postsPerPage, this.currentPageNumber);
+      //});
+    } else{
+      this.isLoading =false;
     }
   }
 
 
-  isThereMorePosts():boolean{
-    return (this.currentPageNumber)* this.postsPerPage <  this.totalPosts;
+  isThereMorePosts(): boolean {
+    return (this.currentPageNumber) * this.postsPerPage < this.totalPosts;
+  }
+
+  public fetchMore(event: IPageInfo) {
+    //console.log(event.endIndex);
+    if (event.endIndex !== this.posts.length - 1) return;
+
+    this.isLoading = true;
+
+    this.fetchMorePosts();
+    //console.log("fetched More", this.posts.length);
   }
 
 

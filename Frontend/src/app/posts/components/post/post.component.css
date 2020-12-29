@@ -1,8 +1,12 @@
-.post-container {
+.post-container{
+   padding-top: 30px;
+   padding-bottom: 30px;
+}
+.post-content {
   max-width: 614px;
   /* margin: auto; */
-  margin-top: 30px;
-  margin-bottom: 60px;
+  /* margin-top: 30px; */
+  /* margin-bottom: 60px; */
 
   background-color: rgba(var(--d87, 255, 255, 255), 1);
   border-radius: 3px;

@@ -8,10 +8,11 @@ import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {ScrollingModule} from '@angular/cdk/scrolling'
 import {MatStepperModule} from '@angular/material/stepper';
+
 import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 
 
 import { AppComponent } from './app.component';
@@ -51,9 +52,10 @@ import { SignUpComponent } from './auth/components/sign-up/sign-up.component';
     ReactiveFormsModule,
     MatButtonModule,
     MatProgressSpinnerModule,
-    ScrollingModule,
     MatStepperModule,
-    Ng2ImgMaxModule
+
+    Ng2ImgMaxModule,
+    VirtualScrollerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
