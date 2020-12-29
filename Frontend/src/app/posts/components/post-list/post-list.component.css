@@ -28,7 +28,3 @@ cdk-virtual-scroll-viewport {
  /* overflow: auto;
  contain:none; */
 }
-.test{
-  width: 50%;
-  background-color: red;
-}

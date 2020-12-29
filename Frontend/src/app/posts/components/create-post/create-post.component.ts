@@ -3,6 +3,7 @@ import { PostsService } from '../../services/posts.service';
 import { Component, OnInit } from '@angular/core';
 import { Ng2ImgMaxService } from 'ng2-img-max';
 import { DomSanitizer } from '@angular/platform-browser';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-post',
@@ -16,14 +17,27 @@ export class CreatePostComponent implements OnInit {
 
   post = {} as Post;
   isLoading = false;
+  isLinear = false;
 
+
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  caption: string;
 
 
   constructor( private  postsService :PostsService ,
      private ng2ImgMax :Ng2ImgMaxService,
+     private _formBuilder: FormBuilder,
      public sanitizer: DomSanitizer ) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    });
+
   }
   onImageChange(event :Event) {
     const image = (event.target as HTMLInputElement).files[0];
@@ -32,7 +46,7 @@ export class CreatePostComponent implements OnInit {
 
      const reader = new FileReader();
 
-  
+
     this.ng2ImgMax.compressImage(image, 0.06).subscribe(  //  .06 mb  60kb
       result => {
         this.uploadedImage = new File([result], result.name,);
@@ -54,6 +68,7 @@ export class CreatePostComponent implements OnInit {
   onSavePost(){
     this.isLoading =true;
     this.post.photo = (this.imagePreview);
+    this.post.caption = this.caption;
     this.postsService.createPost(this.post);
 
 

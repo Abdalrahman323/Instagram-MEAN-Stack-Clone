@@ -3,14 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {ScrollingModule} from '@angular/cdk/scrolling'
+import {MatStepperModule} from '@angular/material/stepper';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 
 import { AppComponent } from './app.component';
@@ -47,9 +48,11 @@ import { SignUpComponent } from './auth/components/sign-up/sign-up.component';
     MatCardModule,
     MatInputModule,
     FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatProgressSpinnerModule,
     ScrollingModule,
+    MatStepperModule,
     Ng2ImgMaxModule
   ],
   providers: [],
