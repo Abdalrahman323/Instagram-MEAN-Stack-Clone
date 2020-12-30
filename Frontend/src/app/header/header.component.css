@@ -35,6 +35,8 @@
 }
 .instagram-logo{
   width: 103px;
+  outline: none;
+  cursor: pointer;
 }
 .icon:hover{
 cursor: pointer;
