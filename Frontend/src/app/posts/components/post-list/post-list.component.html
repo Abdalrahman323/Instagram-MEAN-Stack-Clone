@@ -1,16 +1,15 @@
-<!-- <div *ngIf="isLoading" class="loading-spinner-item">
+<div *ngIf="!posts.length" class="loading-spinner-item">
   <mat-spinner [mode]="'indeterminate'" [diameter]="50"></mat-spinner>
-</div> -->
-<div class="postlist-component" #scrollingBlock>
+</div>
+<div *ngIf="posts.length>0" class="postlist-component" #scrollingBlock>
 
   <virtual-scroller class="post-section" #scroll [items]="posts"
     [parentScroll]="scrollingBlock"
+    [enableUnequalChildrenSizes]="true"
     (vsEnd)="fetchMore($event)">
     <post class="post-container" *ngFor="let item of scroll.viewPortItems" [post]="item">
     </post>
-    <div *ngIf="isLoading" class="loading-spinner-item">
-      <mat-spinner [mode]="'indeterminate'" [diameter]="50"></mat-spinner>
-    </div>
+      <mat-spinner *ngIf="isLoading" [mode]="'indeterminate'" [diameter]="50"></mat-spinner>
 
   </virtual-scroller>
 

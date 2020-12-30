@@ -94,7 +94,7 @@
   display: flex;
 }
 .post-creator{
-  font-weight: 600;
+  font-weight: 500;
 }
 .post-creator:hover{
   cursor: pointer;

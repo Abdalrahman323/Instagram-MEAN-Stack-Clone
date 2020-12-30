@@ -53,5 +53,8 @@ virtual-scroller {
   .suggestion-component{
     display: none;
   }
+  .post-section {
+    margin: 0;
+  }
 
 }
