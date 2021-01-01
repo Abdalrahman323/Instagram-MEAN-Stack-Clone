@@ -22,7 +22,7 @@ export class UserProfileComponent implements OnInit {
    if(this.userId){
      this.getUserDateRequest();
    }
-   
+
   }
 
   getUserDateRequest(){

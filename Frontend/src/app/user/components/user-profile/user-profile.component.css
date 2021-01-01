@@ -1,38 +1,80 @@
-.loading-spinner-item{
+.user-profile-component {
+  /* margin : 0 13.5%; */
+  max-width: 975px;
+  margin: auto;
+  padding: 30px 20px 0;
+}
+
+.loading-spinner-item {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
-mat-spinner{
-  margin:auto;
-}
-
-
-.user-profile-component{
-  /* margin : 0 13.5%; */
-  max-width: 975px;
+mat-spinner {
   margin: auto;
 }
-@media screen and (max-width: 400px){
+.profile-header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 44px;
+}
+.profile-image-container {
+  margin-inline-end: 30px;
+  width: 300px;
+}
+.inner-image img {
+  display: block;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  width: 150px;
+  height: 150px;
+  /* box-shadow: 0 0 0 5px red; */
+}
+.user-profile-setting {
+  width: 100%;
+  /* background: gray; */
+}
+.profile-user-name {
+  font-weight: 300;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.user-stats {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin-bottom: 20px;
+}
+.user-stats-sm {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin-bottom: 20px;
+  border-top: 1px solid #dbdbdb;
+  justify-content: space-around;
+  padding: 12px 0;
+}
+
+/* @media screen and (max-width: 400px){
  .user-profile-component{
    margin: 0 1%;
+   padding: 0;
  }
-}
+} */
 * {
   box-sizing: border-box;
 }
 
-body{
+body {
   background: whitesmoke;
   margin: 0;
   font-family: sans-serif;
 }
 
-
-nav{
+nav {
   background: white;
   margin-bottom: 25px;
 }
@@ -42,13 +84,13 @@ h5 {
   text-align: right;
 }
 
-header{
+header {
   display: flex;
   align-items: flex-end;
   margin-bottom: 30px;
 }
 
-header .col-left{
+header .col-left {
   margin-right: 25px;
 }
 
@@ -56,7 +98,7 @@ header h1 {
   font-weight: 400;
 }
 
-header button{
+header button {
   background: dodgerblue;
   border: none;
   padding: 10px 100px;
@@ -64,14 +106,14 @@ header button{
   font-size: 14px;
 }
 
-.user-img{
+.user-img {
   border-radius: 50%;
   width: 100px;
   display: block;
   margin: 0 auto;
 }
 
-article{
+article {
   margin-bottom: 30px;
 }
 
@@ -81,15 +123,20 @@ aside {
   margin-bottom: 10px;
 }
 
-aside strong{
+aside strong {
   color: black;
 }
 
-.col-stats{
-  width: 33.3333%;
+.li-stats {
   text-align: center;
-  color: gray;
   font-weight: 200;
+  font-size: 16px;
+  margin-inline-end: 40px;
+  display: flex;
+}
+.li-stats span {
+  font-weight: 500;
+  margin-inline-end: 5px;
 }
 
 section {
@@ -102,35 +149,59 @@ section {
 
 section > * {
   width: 32%;
-  margin-bottom: .5%;
+  margin-bottom: 0.5%;
   margin-inline-start: 1%;
 }
 
-img{
+img {
   width: 100%;
   height: 300px;
   display: block;
 }
 
-@media (max-width: 400px){
-  img{
-    height: 150px;
+@media only screen and (max-width: 768px) {
+  .inner-image img {
+    height: 77px;
+    width: 77px;
+  }
+  .profile-image-container {
+    width: auto;
+  }
+  .user-profile-component {
+    padding: 0;
+    margin-top: 16px ;
   }
 }
 
+@media screen and (max-width: 640px) {
+  .user-stats {
+    display: none;
+  }
+  .li-stats {
+    display: inline;
+    margin: 0;
+  }
+  .li-stats span {
+    display: block;
+    /* color: #8e8e8e; */
+  }
+}
 
-@media screen and (max-width: 400px){
-  aside .col{
+@media screen and (min-width: 641px) {
+  .user-stats-sm {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  aside .col {
     width: 100%;
     padding: 10px;
   }
-
-  /* section > * {
-    width: 100%;
-    padding: 10px
-  } */
 }
-img:hover{
-  opacity: 0.55;
 
+@media (max-width: 400px) {
+  img {
+    height: 150px;
+  }
 }

@@ -2,10 +2,14 @@
   <nav class="nav-bar">
     <img routerLink="/" class="instagram-logo" src="assets/icons/instagram-wordmark.svg">
     <div class="spacer"></div>
-    <img routerLink="/" class="icon" src="assets/icons/explore-24px.svg">
-    <img routerLink='/create' class="icon" src="assets/icons/add_a_photo-24px.svg">
-    <img (click)=toUserProfile() class="icon"src="assets/icons/account_circle-24px.svg">
-    <img *ngIf="isAuthenticated" (click)=logOut() routerLinkActive="router-link-active"  class="icon" src="assets/icons/exit_to_app-24px.svg">
+    <!-- <svg-icon *ngIf="!post.isLiked" (click)="toggleLike()" class="icon" src="assets/icons/heart.svg"
+          [svgStyle]="{ 'width.px':24 ,'height.px':24 }"></svg-icon>  assets/icons/explore-24px.svg-->
+    <svg-icon routerLink="/" class="icon" src="assets/icons/explore-24px.svg" #rla="routerLinkActive" routerLinkActive="active"> </svg-icon>
+    <!-- <svg-icon  routerLink="/" class="icon" [svgStyle]="{ 'width.px':22 ,'height.px':22 }" src="assets/icons/explore-solid.svg"> </svg-icon> -->
+
+    <svg-icon routerLink='/create' class="icon" src="assets/icons/add_a_photo-24px.svg"> </svg-icon>
+    <svg-icon (click)=toUserProfile() class="icon"src="assets/icons/account_circle-24px.svg"> </svg-icon>
+    <svg-icon *ngIf="isAuthenticated" (click)=logOut() routerLinkActive="router-link-active"  class="icon" src="assets/icons/exit_to_app-24px.svg"> </svg-icon>
     <!-- <svg-icon src="assets/icons//exit_to_app-24px.svg" [svgStyle]="{ 'width.px':90 }"></svg-icon> -->
 
   </nav>

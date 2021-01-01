@@ -1,34 +1,54 @@
-<div *ngIf="isLoading" class="loading-spinner-item">  
-  <mat-spinner    [mode]="'indeterminate'" [diameter]="50"></mat-spinner>
+<div *ngIf="isLoading" class="loading-spinner-item">
+  <mat-spinner [mode]="'indeterminate'" [diameter]="50"></mat-spinner>
 </div>
 <div *ngIf="!isLoading" class="user-profile-component">
-  <aside>
-    <div class='col-stats'>
-      <strong>{{posts.length}}</strong>
-      <br/>
+  <div class="profile-header">
+    <div class="profile-image-container">
+      <div class="inner-image">
+        <img src="assets/Images/empty-profile-img.png" alt="">
+      </div>
+    </div>
+    <div class="user-profile-setting">
+      <div class="name-section">
+        <h1 class="profile-user-name">Test</h1>
+      </div>
+      <ul class="user-stats">
+        <li class='li-stats'>
+          <span>{{posts.length}}</span>
+          posts
+        </li>
+        <li class='li-stats'>
+          <span>0 </span>
+          followers
+        </li>
+        <li class='li-stats'>
+          <span>0</span>
+          following
+        </li>
+      </ul>
+    </div>
+  </div>
+  <ul class="user-stats-sm">
+    <li class='li-stats'>
+      <span>{{posts.length}}</span>
       posts
-    </div>
-    <div class='col-stats'>
-      <strong>292</strong>
-      <br/>
+    </li>
+    <li class='li-stats'>
+      <span>0 </span>
       followers
-    </div>
-    <div class='col-stats'>
-      <strong>8292</strong>
-      <br/>
+    </li>
+    <li class='li-stats'>
+      <span>0</span>
       following
-    </div>
-  </aside>
-  
+    </li>
+  </ul>
+
   <section>
     <div *ngFor="let post of posts">
-        <img [src]="post.photo" alt="">
-       <!-- <h5>Monks</h5> -->
+      <img [src]="post.photo" alt="">
+      <!-- <h5>Monks</h5> -->
     </div>
 
   </section>
 
 </div>
- 
-
-  
